@@ -266,7 +266,7 @@ local UnitResult = { -- class
 	verbosity = 1
 }
 	function UnitResult:displayClassName()
-		--if self.verbosity == 0 then print("") end
+		if self.verbosity == 0 then print("") end
 		print(self.currentClassName)
 	end
 
