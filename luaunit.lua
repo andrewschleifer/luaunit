@@ -266,8 +266,11 @@ local UnitResult = { -- class
 	verbosity = 1
 }
 	function UnitResult:displayClassName()
-		if self.verbosity == 0 then print("") end
-		print(self.currentClassName)
+		if self.verbosity == 0 then
+			io.stdout:write("")
+		else
+			print(self.currentClassName)
+		end
 	end
 
 	function UnitResult:displayTestName()
@@ -282,7 +285,6 @@ local UnitResult = { -- class
 		if self.verbosity == 0 then
 			io.stdout:write("F")
 		else
-			--print(errorMsg)
 			print("", "Failed")
 		end
 	end
@@ -309,8 +311,11 @@ local UnitResult = { -- class
 	end
 
 	function UnitResult:displayFinalResult()
-		if self.verbosity == 0 then print("") end
-		print("=========================================================")
+		if self.verbosity == 0 then
+			print("")
+		else
+			print("=========================================================")
+		end
 		self:displayFailedTests()
 		local failurePercent, successCount
 		if self.testCount == 0 then
@@ -327,8 +332,6 @@ local UnitResult = { -- class
 	function UnitResult:startClass(className)
 		self.currentClassName = className
 		self:displayClassName()
-		-- indent status messages
-		if self.verbosity == 0 then io.stdout:write("\t") end
 	end
 
 	function UnitResult:startTest(testName)
