@@ -334,7 +334,7 @@ local UnitResult = { -- class
 	function UnitResult:startTest(testName)
 		self.currentTestName = testName
 		self:displayTestName()
-        self.testCount = self.testCount + 1
+		self.testCount = self.testCount + 1
 		self.testHasFailure = false
 	end
 
